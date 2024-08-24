@@ -1,0 +1,195 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+/* Header Image */
+.Imgheader {
+    margin-bottom: -4px;
+    width: 100%;
+    position: relative;
+}
+.Imgheader-img {
+    width: 100%;
+    height: 130px;
+}
+
+/* Main Container */
+.container {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "nav main aside";
+    grid-template-columns: 200px 1fr 300px;
+    grid-template-rows: auto 1fr; /* Usar auto en la fila del header para ajustarse al contenido */
+    height: 100vh;
+}
+
+/* Header Styling */
+header {
+    grid-area: header;
+    background-color: #A3B5E6; /* Color de fondo */
+    padding: 10px 20px; /* Ajusta el padding para un mayor control */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto; /* Cambiado de fijo a auto para evitar desajustes */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para darle más profundidad */
+}
+
+header h1 {
+    font-size: 40px; /* Ajusta el tamaño del texto */
+    margin: 0;
+    color: #fff; /* Color del texto */
+}
+
+header input[type="search"] {
+    width: 300px; /* Ancho del campo de búsqueda */
+    padding: 8px; /* Ajusta el padding para más espacio interno */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde del campo de búsqueda */
+    font-size: 16px; /* Tamaño del texto en el campo de búsqueda */
+}
+
+header .icons img {
+    margin-left: 20px;
+    width: 30px; /* Ajusta el tamaño de los íconos */
+    height: 30px;
+    cursor: pointer; /* Cambia el cursor a pointer */
+}
+
+/* Navigation Styling */
+nav {
+    grid-area: nav;
+    background-color: #9BB4DC;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Coloca el texto debajo de la imagen */
+    text-align: center; /* Centra el texto debajo de la imagen */
+}
+
+nav ul li a {
+    display: flex; /* Cambiado a flex para centrar el contenido */
+    flex-direction: column; /* Mantiene la columna para imagen y texto */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    width: 120px; /* Ancho fijo para todas las cajas */
+    height: 120px; /* Alto fijo para todas las cajas */
+    padding: 10px;
+    background-color: #9BB4DC; /* Color de fondo de la caja */
+    border-radius: 8px; /* Bordes redondeados */
+    text-decoration: none; /* Quita el subrayado del texto */
+    color: inherit; /* Mantiene el color del texto */
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color al pasar el cursor */
+}
+
+nav ul li a:hover {
+    background-color: #f8f9fa; /* Cambia el color de fondo al pasar el cursor */
+}
+
+nav ul li img {
+    margin-right: 0; /* Elimina el margen derecho porque la imagen está encima del texto */
+    margin-bottom: 5px; /* Añade un pequeño margen debajo de la imagen */
+    width: 60px; /* Ajusta el tamaño de la imagen */
+    height: 60px; /* Ajusta el tamaño de la imagen */
+}
+
+/* Main Content Styling */
+main {
+    grid-area: main;
+    padding: 20px;
+}
+
+main h2 {
+    margin-top: 0;
+    color: #4169e1;
+}
+
+.registro-nacional, .registro-internacional {
+    background-color: #e9eff8; /* Fondo azul claro */
+    padding: 15px;
+    border: 1px solid #d0d7e8; /* Borde del mismo color que el fondo del nav */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio debajo de la caja */
+}
+
+.registro-nacional h2 {
+    margin-top: 0;
+    color: #4169e1; /* Color de texto azul */
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.registro {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+    background-color: white; /* Fondo blanco para cada registro */
+    border: 1px solid #dcdcdc; /* Borde gris claro alrededor de cada registro */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color al pasar el cursor */
+}
+
+.registro .status {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.registro:hover {
+    background-color: #f0f0f0; /* Cambia el fondo al pasar el cursor */
+}
+
+.status.orange { background-color: orange; }
+.status.yellow { background-color: yellow; }
+.status.green { background-color: green; }
+
+/* Sidebar Styling */
+aside {
+    grid-area: aside;
+    background-color: #D0D7E8;
+    padding: 20px;
+}
+
+aside h2 {
+    margin-top: 0;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.progress {
+    background-color: #4169e1;
+    height: 100%;
+}
+
+aside a {
+    color: #4169e1;
+    text-decoration: none;
+}
+
+aside a:hover {
+    text-decoration: underline;
+}
