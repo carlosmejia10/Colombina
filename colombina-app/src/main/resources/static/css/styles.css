@@ -1,0 +1,197 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f0fe;
+}
+.header {
+    width: 100%;
+    position: relative;
+}
+.header-img {
+    width: 100%;
+    height: auto;
+}
+.container {
+    display: flex;
+    height: calc(100vh - 150px); /* Ajusta este valor según la altura de tu header */
+}
+nav {
+    width: 120px;
+    background-color: #A3B6E6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.TituloTabla{
+    background-color: #A3B6E6;
+    margin: 0;
+    height: 40px;
+}
+tituloT{
+    color: white;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+.registro-info p{
+    margin: 15px;
+}
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #dcdcdc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.nav-item img {
+    margin-right: 10px;
+}
+.nav-item:hover {
+    background-color: #4a69a1;
+}
+.contenedor {
+    margin-left: 0;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9fb7e3;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.title h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0;
+}
+.icons img {
+    margin-left: 15px;
+    height: 40px;
+    width: 40px;
+}
+.main-content {
+    display: flex;
+    flex: 1;
+}
+.ContenedorPendientes {
+    flex: 3;
+    padding: 0;
+    background-color: #f5f5f5;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.pendientes h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #3b3b3b;
+    font-weight: bold;
+}
+.pendientes ul {
+    list-style-type: none;
+    padding: 0;
+}
+.pendientes li {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333333;
+}
+ul p{
+    font-family: overpass;
+}
+ul div{
+    text-align: center;
+    justify-content: center;
+}
+.estatus {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.estatus.pendiente {
+    background-color: #ffc107;
+}
+.estatus.hecho {
+    background-color: #4caf50;
+}
+.fecha {
+    margin-left: auto;
+    margin-right: 20px;
+    font-weight: bold;
+    color: #666666;
+}
+.estatusTextoFalta {
+    color: #f44336;
+    font-weight: bold;
+}
+.estatusTexto{
+    color: #a79d9d;
+    font-weight: bold;
+}
+.gris{
+    color: #a7a5a5;
+}
+p{
+    margin: 0;
+}
+/**************************************************************/
+.InfoContenedor {
+    flex: 1;
+    padding: 20px;
+    background-color: #A3B6E6;
+    border-radius: 5px;
+}
+.registro-info {
+    text-align: center;
+}
+.registro-info h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #3b3b3b;
+    font-weight: bold;
+}
+table{
+    width: 100%;
+}
+tr{
+    padding: 7px;
+    height: 65px;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content:space-between;
+}
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+.progress {
+    height: 25px;
+    background-color: #f44336;
+}
+.progress-percent {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+}
