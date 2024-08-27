@@ -1,7 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --header-font-color: #4D82D2;
   --header-color:#d4dde7;
   --header-font-color-hover: #82a4d6;
+  --p-font-color:#19769E;
 }
 
 
@@ -89,5 +94,36 @@ code {
     width: 100%;
   } 
 }
+
+
+/*///////////// Home ///////////////*/
+
+.main_container { 
+  margin: 15rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main_container main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.main_container main img {
+  margin-bottom: 5rem;
+}
+
+.main_container main p {
+  width: 80%;
+  font-family: 'MuseoModerno', sans-serif;
+  color: var(--p-font-color);
+}
+
+/*//////////// Dashboard /////////////////*/
+
+
 
 

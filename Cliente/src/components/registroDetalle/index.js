@@ -1,11 +1,11 @@
 import React from 'react';
-import { Search, Bell, User, ChevronDown, FileText, Calendar, BarChart2, Mail } from 'lucide-react';
+import { Bell, User, ChevronDown, FileText, Calendar, BarChart2, Mail, Clock, FileCheck, Send, CalendarCheck } from 'lucide-react';
 
 const iconStyle = { color: '#4A5568', width: '24px', height: '24px' };
 
-const Dashboard = () => {
-    return (
-        <div style={styles.container}>
+ const RegistroDetalle = () => {
+  return (
+    <div style={styles.container}>
       {/* Sidebar */}
       <div style={styles.sidebar}>
         <FileText style={iconStyle} />
@@ -18,27 +18,52 @@ const Dashboard = () => {
       <div style={styles.mainContent}>
         {/* Header */}
         <header style={styles.header}>
-          <h1 style={styles.title}>Tramites +</h1>
-          <div style={styles.headerRight}>
-            <div style={styles.searchContainer}>
-              <input type="text" placeholder="Buscar" style={styles.searchInput} />
-              <Search style={styles.searchIcon} />
-            </div>
-            <button style={styles.iconButton}><Bell /></button>
-            <button style={styles.iconButton}><User /></button>
+          <h1 style={styles.title}>REGISTRO N° 8745F2066</h1>
+          <div style={styles.headerIcons}>
+            <Clock style={iconStyle} />
+            <FileCheck style={iconStyle} />
+            <Send style={iconStyle} />
+            <CalendarCheck style={iconStyle} />
+            <Bell style={iconStyle} />
+            <User style={iconStyle} />
           </div>
         </header>
 
         {/* Content */}
         <div style={styles.content}>
           <div style={styles.leftContent}>
-            <RegistroSection title="Registro Sanitario Nacional" registros={[
-              { numero: '8745F2065', fecha: 'hace 2sem', estado: 'respondido' },
-              { numero: '8745F2066', fecha: 'hace 2sem', estado: 'no respondido' },
-              { numero: '8745F2067', fecha: '16/04/24', estado: 'respondido' },
-              { numero: '8745F2068', fecha: '19/02/24', estado: 'respondido' },
-            ]} />
-            <RegistroSection title="Registro Sanitario Interacional" empty />
+            <div style={styles.pendientesSection}>
+              <div style={styles.sectionHeader}>
+                <h2 style={styles.sectionTitle}>Pendientes</h2>
+                <ChevronDown style={iconStyle} />
+              </div>
+              <div style={styles.sectionContent}>
+                <PendienteItem 
+                  title="Aprobacion de INVIMA" 
+                  date="20/08/24" 
+                  status="Pendiente..." 
+                  statusColor="#E53E3E"
+                />
+                <PendienteItem 
+                  title="Consolidacion de Tramite" 
+                  date="20/08/24" 
+                  status="Concluido el 20/08/24" 
+                  statusColor="#718096"
+                />
+                <PendienteItem 
+                  title="Revision de documentacion" 
+                  date="17/08/24" 
+                  status="Concluido el 19/08/24" 
+                  statusColor="#718096"
+                />
+                <PendienteItem 
+                  title="Apertura de tramite" 
+                  date="07/08/24" 
+                  status="Concluido el 08/08/24" 
+                  statusColor="#718096"
+                />
+              </div>
+            </div>
           </div>
           <div style={styles.rightSidebar}>
             <h3 style={styles.sidebarTitle}>Estado del registro</h3>
@@ -46,11 +71,11 @@ const Dashboard = () => {
             <div style={styles.progressContainer}>
               <div style={styles.progressBar}></div>
             </div>
-            <p style={styles.progressText}>75%</p>
+            <p style={styles.progressText}>45%</p>
             <p style={styles.dateText}>Fecha de envío del trámite: 07/08/24</p>
             <p style={styles.dateText}>Fecha de esperada de respuesta: 07/08/24</p>
             <h4 style={styles.sidebarSubtitle}>Pendientes</h4>
-            <p style={styles.normalText}>Sin pendientes</p>
+            <p style={styles.pendienteText}>Aprobacion INVIMA</p>
             <h4 style={styles.sidebarSubtitle}>Documentos</h4>
             <button style={styles.linkButton}>Ver documentos</button>
           </div>
@@ -60,42 +85,27 @@ const Dashboard = () => {
   );
 }
 
-function RegistroSection({ title, registros, empty }) {
+function PendienteItem({ title, date, status, statusColor }) {
   return (
-    <div style={styles.section}>
-      <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>{title}</h2>
-        <ChevronDown />
+    <div style={styles.pendienteItem}>
+      <div style={styles.pendienteLeft}>
+        <div style={{...styles.statusDot, backgroundColor: statusColor === '#E53E3E' ? '#ECC94B' : '#48BB78'}}></div>
+        <div>
+          <p style={styles.pendienteTitle}>{title}</p>
+          <p style={styles.pendienteDate}>{date}</p>
+        </div>
       </div>
-      <div style={styles.sectionContent}>
-        {empty ? (
-          <p style={styles.emptyText}>Sin registros aún</p>
-        ) : (
-          registros.map((registro) => (
-            <div key={registro.numero} style={styles.registro}>
-              <div style={{
-                ...styles.registroStatus,
-                backgroundColor: registro.estado === 'no respondido' ? '#ECC94B' : '#48BB78'
-              }}></div>
-              <div>
-                <p style={styles.registroNumero}>REGISTRO N° {registro.numero}</p>
-                <p style={styles.registroFecha}>{registro.fecha}</p>
-              </div>
-            </div>
-          ))
-        )}
-      </div>
+      <p style={{...styles.pendienteStatus, color: statusColor}}>{status}</p>
     </div>
   );
 }
 
 const styles = {
   container: {
+    marginTop:'10rem',
     display: 'flex',
     height: '100vh',
     backgroundColor: '#EBF8FF',
-    marginTop:'10rem',
-    width:'100%'
   },
   sidebar: {
     width: '64px',
@@ -112,7 +122,7 @@ const styles = {
     flexDirection: 'column',
   },
   header: {
-    backgroundColor: 'white',
+    backgroundColor: '#BEE3F8',
     padding: '16px',
     display: 'flex',
     alignItems: 'center',
@@ -121,32 +131,11 @@ const styles = {
   title: {
     fontSize: '24px',
     fontWeight: 'bold',
-    color: '#3182CE',
+    color: '#2D3748',
   },
-  headerRight: {
+  headerIcons: {
     display: 'flex',
-    alignItems: 'center',
     gap: '16px',
-  },
-  searchContainer: {
-    position: 'relative',
-  },
-  searchInput: {
-    padding: '8px 16px 8px 40px',
-    borderRadius: '9999px',
-    border: '1px solid #E2E8F0',
-  },
-  searchIcon: {
-    position: 'absolute',
-    left: '12px',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    color: '#A0AEC0',
-  },
-  iconButton: {
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer',
   },
   content: {
     flex: 1,
@@ -156,20 +145,15 @@ const styles = {
   },
   leftContent: {
     flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '16px',
   },
-  section: {
+  pendientesSection: {
     backgroundColor: 'white',
     borderRadius: '8px',
     boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)',
   },
   sectionHeader: {
     padding: '16px',
-    backgroundColor: '#BEE3F8',
-    borderTopLeftRadius: '8px',
-    borderTopRightRadius: '8px',
+    borderBottom: '1px solid #E2E8F0',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -181,26 +165,31 @@ const styles = {
   sectionContent: {
     padding: '16px',
   },
-  registro: {
+  pendienteItem: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '16px',
+  },
+  pendienteLeft: {
     display: 'flex',
     alignItems: 'center',
     gap: '16px',
-    marginBottom: '16px',
   },
-  registroStatus: {
+  statusDot: {
     width: '12px',
     height: '12px',
     borderRadius: '50%',
   },
-  registroNumero: {
+  pendienteTitle: {
     fontWeight: '600',
   },
-  registroFecha: {
+  pendienteDate: {
     fontSize: '14px',
     color: '#718096',
   },
-  emptyText: {
-    color: '#718096',
+  pendienteStatus: {
+    fontSize: '14px',
   },
   rightSidebar: {
     width: '256px',
@@ -213,34 +202,40 @@ const styles = {
     fontWeight: '600',
     marginBottom: '8px',
   },
+  registroNumero: {
+    fontSize: '14px',
+    color: '#718096',
+    marginBottom: '8px',
+  },
   progressContainer: {
     height: '8px',
     backgroundColor: '#E2E8F0',
     borderRadius: '4px',
-    marginTop: '8px',
+    marginBottom: '8px',
   },
   progressBar: {
-    width: '75%',
+    width: '45%',
     height: '100%',
-    backgroundColor: '#48BB78',
+    backgroundColor: '#E53E3E',
     borderRadius: '4px',
   },
   progressText: {
     fontSize: '24px',
     fontWeight: 'bold',
-    marginTop: '8px',
+    marginBottom: '8px',
   },
   dateText: {
     fontSize: '14px',
-    marginTop: '4px',
+    marginBottom: '4px',
   },
   sidebarSubtitle: {
     fontWeight: '600',
     marginTop: '16px',
     marginBottom: '4px',
   },
-  normalText: {
+  pendienteText: {
     fontSize: '14px',
+    color: '#3182CE',
   },
   linkButton: {
     background: 'none',
@@ -252,7 +247,4 @@ const styles = {
   },
 };
 
-  
-
-
-export default Dashboard;
+export default RegistroDetalle;
