@@ -24,7 +24,8 @@ public class Tramites {
     public Tramites() {
     }
 
-    public Tramites(String nombre, String descripcion, String requisitos) {
+    public Tramites(String nombre, String descripcion, String requisitos, Long id) {
+        this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.requisitos = requisitos;
