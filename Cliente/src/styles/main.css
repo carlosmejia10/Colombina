@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-font-color: #4D82D2;
+  --header-color:#d4dde7;
+  --header-font-color-hover: #82a4d6;
+  --p-font-color:#19769E;
+}
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/Fondo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.navbar {
+  font-family: 'Nerko One', sans-serif;
+  background: var(--header-color);
+  padding: 10px 20px;
+  height: 10rem;
+}
+
+.Inicio-sesion-container{
+  width: 15rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  align-self: self-end;
+}
+
+.navbar-brand{
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--header-font-color);
+}
+
+.navbar .navbar-brand:hover{
+  color: var(--header-font-color-hover);
+}
+
+
+
+/*///////////// Auth ///////////////*/
+
+.auth_container { 
+  width: 350px;
+  margin: 15rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth_container h1 {
+  text-align: center;
+}
+.auth_container button {
+  width: 100%;
+}
+
+.auth_container img{
+  width: 80%;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  .auth_container {
+    width: 100%;
+  } 
+}
+
+
+/*///////////// Home ///////////////*/
+
+.main_container { 
+  margin: 15rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main_container main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.main_container main img {
+  margin-bottom: 5rem;
+}
+
+.main_container main p {
+  width: 80%;
+  font-family: 'MuseoModerno', sans-serif;
+  color: var(--p-font-color);
+}
+
+/*//////////// Dashboard /////////////////*/
+
+
+
+
