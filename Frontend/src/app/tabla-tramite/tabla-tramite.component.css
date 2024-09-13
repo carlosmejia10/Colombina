@@ -1,3 +1,7 @@
+.container {
+    display: flex;
+}
+
 .main-content {
     display: flex;
 }
@@ -53,10 +57,12 @@ table td {
 
 .pendiente {
     background-color: red;
+    margin-left: 6px;
 }
 
 .hecho {
     background-color: green;
+    margin-left: 6px;
 }
 
 .fecha {

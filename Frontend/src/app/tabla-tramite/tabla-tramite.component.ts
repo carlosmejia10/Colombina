@@ -2,11 +2,14 @@
 import{Tramite} from'./../tramite';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import{LateralComponent} from'../Layout/lateral/lateral.component'
+import{HeaderComponent} from'../Layout/header/header.component'
+import{BarraOpcComponent}from'../Layout/barra-opc/barra-opc.component'
 
 @Component({
   selector: 'app-tabla-tramite',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,LateralComponent,HeaderComponent,BarraOpcComponent],
   templateUrl: './tabla-tramite.component.html',
   styleUrls: ['./tabla-tramite.component.css']
 })

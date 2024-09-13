@@ -1,4 +1,10 @@
-
+.containerM {
+    display: flex;
+   
+  }
+  .contenedor{
+    width: 100%;
+  }
 .container {
     background-color: white;
     width: 80%;

@@ -1,3 +1,10 @@
+.containerM {
+  display: flex;
+ 
+}
+.contenedor{
+  width: 100%;
+}
 .container {
     width: 80%;
     margin:  50px;
