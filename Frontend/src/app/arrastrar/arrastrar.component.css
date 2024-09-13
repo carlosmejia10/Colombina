@@ -64,7 +64,7 @@ p {
     border-radius: 5px;
 }
 
-.add-button {
+.fl {
     padding: 10px 20px;
     background-color: #7f91c6;
     color: white;
@@ -73,3 +73,8 @@ p {
     border-radius: 5px;
     font-size: 14px;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
+
