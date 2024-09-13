@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-barra-opc',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],  
   templateUrl: './barra-opc.component.html',
-  styleUrl: './barra-opc.component.css'
+  styleUrls: ['./barra-opc.component.css']
 })
 export class BarraOpcComponent {
-
 }
