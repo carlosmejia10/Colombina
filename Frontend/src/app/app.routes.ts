@@ -4,6 +4,7 @@ import {ArrastrarComponent} from './arrastrar/arrastrar.component'
 import {LoginComponent} from './Login/login/login.component'
 import {CrearTramiteComponent} from './crear-tramite/crear-tramite.component'
 import{TablaTramiteComponent} from'./tabla-tramite/tabla-tramite.component'
+import{SpolicitudPBEComponent} from './spolicitud-pbe/spolicitud-pbe.component'
 
 export const routes: Routes = [
   {
@@ -11,7 +12,7 @@ export const routes: Routes = [
     component: CrearTramiteComponent
   },
   {
-    path: 'auth',
+    path: '',
     component: LoginComponent
   },
   {
@@ -21,5 +22,9 @@ export const routes: Routes = [
   {
     path: 'tramites',
     component: TablaTramiteComponent
+  },
+  {
+    path: 'pbe',
+    component: SpolicitudPBEComponent
   }
 ];
