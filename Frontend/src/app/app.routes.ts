@@ -9,6 +9,7 @@ import{ConfirmacionComponent} from'./confirmacion/confirmacion.component'
 import{ModificarInternaacionalComponent} from'./modificar-internacional/modificar-internaacional.component'
 import {ModificarNacionalComponent  } from './modificar-nacional/modificar-nacional.component'
 import{RenovarComponent} from'./renovar/renovar.component'
+import{NotificacionComponent} from'./notificacion/notificacion.component'
 
 export const routes: Routes = [
   {
@@ -46,5 +47,9 @@ export const routes: Routes = [
   {
     path: 'renovar',
     component: RenovarComponent
+  },
+  {
+  path: 'notificaciones',
+    component: NotificacionComponent
   }
 ];
