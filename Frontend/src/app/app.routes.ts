@@ -5,6 +5,10 @@ import {LoginComponent} from './Login/login/login.component'
 import {CrearTramiteComponent} from './crear-tramite/crear-tramite.component'
 import{TablaTramiteComponent} from'./tabla-tramite/tabla-tramite.component'
 import{SpolicitudPBEComponent} from './spolicitud-pbe/spolicitud-pbe.component'
+import{ConfirmacionComponent} from'./confirmacion/confirmacion.component'
+import{ModificarInternaacionalComponent} from'./modificar-internacional/modificar-internaacional.component'
+import {ModificarNacionalComponent  } from './modificar-nacional/modificar-nacional.component'
+import{RenovarComponent} from'./renovar/renovar.component'
 
 export const routes: Routes = [
   {
@@ -26,5 +30,21 @@ export const routes: Routes = [
   {
     path: 'pbe',
     component: SpolicitudPBEComponent
+  },
+  {
+    path: 'confirmacion',
+    component: ConfirmacionComponent
+  },
+  {
+    path: 'modificarInternacional',
+    component: ModificarInternaacionalComponent
+  },
+  {
+    path: 'modificarNacional',
+    component: ModificarNacionalComponent
+  },
+  {
+    path: 'renovar',
+    component: RenovarComponent
   }
 ];
