@@ -12,6 +12,7 @@ import{RenovarComponent} from'./renovar/renovar.component'
 import{NotificacionComponent} from'./notificacion/notificacion.component'
 import { historialComponent } from './historial/historial.component';
 import { calendarioComponent } from './calendario/calendario.component';
+import { estadisticasComponent } from './estadisticas/estadisticas.component';
 
 export const routes: Routes = [
   {
@@ -61,5 +62,10 @@ export const routes: Routes = [
   {
     path: 'calendario',
       component: calendarioComponent
+  }
+  ,
+  {
+    path: 'estadisticas',
+      component: estadisticasComponent
   }
 ];

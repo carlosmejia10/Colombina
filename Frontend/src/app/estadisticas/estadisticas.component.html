@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<div class="container">
+  <app-lateral></app-lateral>
+
+  <div class="contenedor">
+    <app-barra-opc></app-barra-opc>
+
+
+    <div class="estadisticas-container">
+      <h2>Estadísticas</h2>
+
+      <div class="estadisticas-grid">
+        <div class="chart">
+          <h3>Trámites Nacionales</h3>
+          <canvas id="tramitesNacionales"></canvas>
+        </div>
+        <div class="chart">
+          <h3>Documentos devueltos</h3>
+          <canvas id="documentosDevueltos" #canvasRef></canvas>
+        </div>
+        <div class="chart">
+          <h3>Países con Trámites Internacionales</h3>
+          <canvas id="paisesTramitesInternacionales"></canvas>
+        </div>
+        <div class="chart">
+          <h3>Trámites Nacionales del Año</h3>
+          <canvas id="tramitesNacionalesAnio"></canvas>
+        </div>
+        <div class="chart">
+          <h3>Trámites Internacionales del Año</h3>
+          <canvas id="tramitesInternacionalesAnio"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
