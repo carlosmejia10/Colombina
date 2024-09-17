@@ -10,6 +10,7 @@ import{ModificarInternaacionalComponent} from'./modificar-internacional/modifica
 import {ModificarNacionalComponent  } from './modificar-nacional/modificar-nacional.component'
 import{RenovarComponent} from'./renovar/renovar.component'
 import{NotificacionComponent} from'./notificacion/notificacion.component'
+import { historialComponent } from './historial/historial.component';
 
 export const routes: Routes = [
   {
@@ -51,5 +52,9 @@ export const routes: Routes = [
   {
   path: 'notificaciones',
     component: NotificacionComponent
+  },
+  {
+    path: 'historial',
+      component: historialComponent
   }
 ];
