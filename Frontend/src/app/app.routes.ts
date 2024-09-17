@@ -13,6 +13,7 @@ import{NotificacionComponent} from'./notificacion/notificacion.component'
 import { historialComponent } from './historial/historial.component';
 import { calendarioComponent } from './calendario/calendario.component';
 import { estadisticasComponent } from './estadisticas/estadisticas.component';
+import { auditoriaComponent } from './auditoria/auditoria.component';
 
 export const routes: Routes = [
   {
@@ -67,5 +68,9 @@ export const routes: Routes = [
   {
     path: 'estadisticas',
       component: estadisticasComponent
+  },
+  {
+    path: 'auditoria',
+      component: auditoriaComponent
   }
 ];
