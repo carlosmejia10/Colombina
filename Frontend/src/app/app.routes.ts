@@ -11,6 +11,7 @@ import {ModificarNacionalComponent  } from './modificar-nacional/modificar-nacio
 import{RenovarComponent} from'./renovar/renovar.component'
 import{NotificacionComponent} from'./notificacion/notificacion.component'
 import { historialComponent } from './historial/historial.component';
+import { calendarioComponent } from './calendario/calendario.component';
 
 export const routes: Routes = [
   {
@@ -56,5 +57,9 @@ export const routes: Routes = [
   {
     path: 'historial',
       component: historialComponent
+  },
+  {
+    path: 'calendario',
+      component: calendarioComponent
   }
 ];

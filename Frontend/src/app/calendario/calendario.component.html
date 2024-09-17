@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<div class="container">
+  <app-lateral></app-lateral>
+
+  <div class="contenedor">
+    <app-barra-opc></app-barra-opc>
+
+    <div class="main-content">
+      <h2>Calendario de Solicitudes</h2>
+
+      <!-- Contenedor para la tabla -->
+      <div class="table-container">
+        <!-- Selección del mes -->
+        <div class="month-selector">
+          <button (click)="prevMonth()">&#8249;</button>
+          <span>{{ nombreMes }} {{ anio }}</span>
+          <button (click)="nextMonth()">&#8250;</button>
+        </div>
+
+        <!-- Contenedor del calendario -->
+        <div class="calendar-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let semana of calendario">
+                <td *ngFor="let dia of semana">
+                  <div class="day-cell">
+                    <span>{{ dia.numero }}</span>
+                    <div *ngFor="let solicitud of dia.solicitudes" class="solicitud-item">
+                      {{ solicitud.producto }} - {{ solicitud.estado }}
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
