@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import{LateralComponent} from'../Layout/lateral/lateral.component'
 import{HeaderComponent} from'../Layout/header/header.component'
 import{BarraOpcComponent}from'../Layout/barra-opc/barra-opc.component'
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-tabla-tramite',
   standalone: true,
-  imports: [CommonModule,LateralComponent,HeaderComponent,BarraOpcComponent],
+  imports: [CommonModule,LateralComponent,HeaderComponent,BarraOpcComponent,RouterModule],
   templateUrl: './tabla-tramite.component.html',
   styleUrls: ['./tabla-tramite.component.css']
 })
@@ -30,7 +31,7 @@ export class TablaTramiteComponent {
     this.tramites=[{
       "usuario":1,
       "fecha":"2018-03-16",
-      "titulo":"REGISTRO NO 8745F2065",
+      "titulo":"AR NO 8745F2065",
       "mensaje":"Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
       "tipo":"a",
       "estado":true
@@ -38,7 +39,7 @@ export class TablaTramiteComponent {
     {
       "usuario":2,
       "fecha":"2018-03-16",
-      "titulo":"REGISTRO NO 8745F2065",
+      "titulo":"AR NO 8745F2065",
       "mensaje":"Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
       "tipo":"b",
       "estado":false
@@ -46,7 +47,7 @@ export class TablaTramiteComponent {
     {
       "usuario":3,
       "fecha":"2018-03-16",
-      "titulo":"REGISTRO NO 8745F2065",
+      "titulo":"AR NO 8745F2065",
       "mensaje":"Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
       "tipo":"a",
       "estado":true
@@ -54,7 +55,7 @@ export class TablaTramiteComponent {
     {
       "usuario":4,
       "fecha":"2018-03-16",
-      "titulo":"REGISTRO NO 8745F2065",
+      "titulo":"AR NO 8745F2065",
       "mensaje":"Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
       "tipo":"a",
       "estado":false

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpolicitudPBEComponent } from './spolicitud-pbe.component';
+import { InfoTramiteComponent } from './info-tramite.component';
 
-describe('SpolicitudPBEComponent', () => {
-  let component: SpolicitudPBEComponent;
-  let fixture: ComponentFixture<SpolicitudPBEComponent>;
+describe('InfoTramiteComponent', () => {
+  let component: InfoTramiteComponent;
+  let fixture: ComponentFixture<InfoTramiteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SpolicitudPBEComponent]
+      imports: [InfoTramiteComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SpolicitudPBEComponent);
+    fixture = TestBed.createComponent(InfoTramiteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

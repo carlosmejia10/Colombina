@@ -13,7 +13,7 @@
             <div class="tablas">
                 <div class="ContenedorPendientes">
                     <div class="TituloTabla">
-                        <h2>Registro Sanitario Nacional</h2>
+                        <h2>Tramites Sanitarios Nacionales</h2>
                         <!-- Botón para desplegar u ocultar la tabla -->
                         <button href="#" (click)="toggleTabla('tabla1'); $event.preventDefault();" class="Desplegar">
                             <img src="images/Desplegar.png" class="Desplegable">
@@ -31,7 +31,7 @@
                                 </td>
                                 <td>
                                     <div class="registro">
-                                        <h3>{{tramite.titulo}}</h3>
+                                        <a [routerLink]="['/infoTramite']">{{tramite.titulo}}</a>
                                         <p>{{tramite.fecha}}</p>
                                     </div>
                                     <p>{{tramite.mensaje}}</p>
@@ -46,7 +46,7 @@
                 <!-- Tabla 2 -->
                 <div class="ContenedorPendientes" >
                     <div class="TituloTabla">
-                        <h2>Registro Sanitario Internacional</h2>
+                        <h2>Tramites Sanitarios Internacionales</h2>
                         <button href="#" (click)="toggleTabla('tabla2'); $event.preventDefault();" class="Desplegar">
                             <img src="images/Desplegar.png" class="Desplegable">
                         </button>
@@ -62,7 +62,7 @@
                             </td>
                             <td>
                                 <div class="registro">
-                                    <h3>{{tramite.titulo}}</h3>
+                                    <a [routerLink]="['/infoTramite']">{{tramite.titulo}}</a>
                                     <p>{{tramite.fecha}}</p>
                                 </div>
                                 <p>{{tramite.mensaje}}</p>

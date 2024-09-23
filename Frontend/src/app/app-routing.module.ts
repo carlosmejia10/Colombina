@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Login/login/login.component';
 import { TablaTramiteComponent } from './tabla-tramite/tabla-tramite.component';
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'tramites', component: TablaTramiteComponent },
