@@ -5,7 +5,10 @@ import { CommonModule } from '@angular/common';
 import{LateralComponent} from'../Layout/lateral/lateral.component'
 import{HeaderComponent} from'../Layout/header/header.component'
 import{BarraOpcComponent}from'../Layout/barra-opc/barra-opc.component'
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Fecha } from '../fecha';
+import { Usuario } from '../usuario';
+import { TramiteService } from '../tramite.service';
 
 @Component({
   selector: 'app-tabla-tramite',
@@ -27,39 +30,62 @@ export class TablaTramiteComponent {
       this.mostrarTabla2 = !this.mostrarTabla2;
     }
   }
+  constructor(
+    private tramiteService:TramiteService,
+    private route:ActivatedRoute,
+    private router:Router
+  ){}
   ngOnInit():void{
-    this.tramites=[{
-      "usuario":1,
-      "fecha":"2018-03-16",
-      "titulo":"AR NO 8745F2065",
-      "mensaje":"Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
-      "tipo":"a",
-      "estado":true
+    this.getTramites();
+    /*
+    this.tramites=[
+     {
+        "id": 1,
+        fecha: new Fecha,
+        usuario: new Usuario,
+        "titulo": "AR NO 8745F2065",
+        "mensaje": "Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
+        "tipo": "a",
+        documento: []
+      },
+    {
+      "titulo": "AR NO 8745F2065",
+      "mensaje": "Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
+      "tipo": "b",
+      id: 0,
+      fecha: new Fecha,
+      usuario: new Usuario,
+      documento: []
     },
     {
-      "usuario":2,
-      "fecha":"2018-03-16",
-      "titulo":"AR NO 8745F2065",
-      "mensaje":"Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
-      "tipo":"b",
-      "estado":false
+      fecha: new Fecha,
+      usuario: new Usuario,
+      "titulo": "AR NO 8745F2065",
+      "mensaje": "Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
+      "tipo": "a",
+      id: 0,
+      documento: []
     },
     {
-      "usuario":3,
-      "fecha":"2018-03-16",
-      "titulo":"AR NO 8745F2065",
-      "mensaje":"Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
-      "tipo":"a",
-      "estado":true
-    },
-    {
-      "usuario":4,
-      "fecha":"2018-03-16",
-      "titulo":"AR NO 8745F2065",
-      "mensaje":"Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
-      "tipo":"a",
-      "estado":false
+      fecha: new Fecha,
+      usuario: new Usuario,
+      "titulo": "AR NO 8745F2065",
+      "mensaje": "Le informamos que su tramite con el numero 8745F2065 no ha sido respondido",
+      "tipo": "a",
+      id: 0,
+      documento: []
     }
   ];
+  */
+  }
+  getTramites(): void {
+    this.tramiteService.findAll().subscribe({
+      next: (data) => {
+        this.tramites = data;  // Asigna los datos recibidos a la lista de trámites
+      },
+      error: (err) => {
+        console.error('Error al obtener los trámites', err);
+      }
+    });
   }
 }

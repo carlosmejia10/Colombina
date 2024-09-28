@@ -25,10 +25,12 @@
                         <table>
                             <tr *ngFor="let tramite of tramites">
                               <ng-container *ngIf="tramite.tipo=='a'">
+                                <!--
                                 <td>
                                   <i *ngIf="tramite.estado" class="estatus hecho"></i>
                                   <i *ngIf="!tramite.estado" class="estatus pendiente"></i>
                                 </td>
+                                -->
                                 <td>
                                     <div class="registro">
                                         <a [routerLink]="['/infoTramite']">{{tramite.titulo}}</a>
@@ -56,10 +58,11 @@
                       <table>
                         <tr *ngFor="let tramite of tramites">
                           <ng-container *ngIf="tramite.tipo=='b'">
-                            <td>
+                           <!-- <td>
                               <i *ngIf="tramite.estado" class="estatus hecho"></i>
                               <i *ngIf="!tramite.estado" class="estatus pendiente"></i>
                             </td>
+                            -->
                             <td>
                                 <div class="registro">
                                     <a [routerLink]="['/infoTramite']">{{tramite.titulo}}</a>

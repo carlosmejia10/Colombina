@@ -1,8 +1,13 @@
+import { Documento } from "./documento";
+import { Fecha } from "./fecha";
+import { Usuario } from "./usuario";
+
 export class Tramite {
-    usuario!:number;
-    fecha!:string;
+    id!:number;
     titulo!:string;
     mensaje!:string;
     tipo!:string;
-    estado!:boolean;
+    fecha!:Fecha;
+    usuario!:Usuario;
+    documento!:Documento[];
 }

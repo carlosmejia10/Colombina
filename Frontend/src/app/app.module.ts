@@ -3,6 +3,7 @@ import { NgModule} from "@angular/core";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './Login/login/login.component';
+import { HttpClientModule } from "@angular/common/http";
 
 import { TablaTramiteComponent} from'./tabla-tramite/tabla-tramite.component';
 
@@ -12,7 +13,8 @@ import { TablaTramiteComponent} from'./tabla-tramite/tabla-tramite.component';
     ],
     imports:[
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule
     ],
     providers:[],
     bootstrap:[AppComponent]
