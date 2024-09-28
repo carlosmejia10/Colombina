@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import{LateralComponent} from'../Layout/lateral/lateral.component'
 import{HeaderComponent} from'../Layout/header/header.component'
 import{BarraOpcComponent}from'../Layout/barra-opc/barra-opc.component'
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { Fecha } from '../fecha';
 import { Usuario } from '../usuario';
 import { TramiteService } from '../tramite.service';
@@ -19,6 +19,7 @@ import { TramiteService } from '../tramite.service';
 })
 export class TablaTramiteComponent {
   tramites!:Tramite[];
+  tramiteService!: TramiteService;
   
   mostrarTabla1: boolean = true;
   mostrarTabla2: boolean = true;
@@ -30,14 +31,10 @@ export class TablaTramiteComponent {
       this.mostrarTabla2 = !this.mostrarTabla2;
     }
   }
-  constructor(
-    private tramiteService:TramiteService,
-    private route:ActivatedRoute,
-    private router:Router
-  ){}
   ngOnInit():void{
-    this.getTramites();
-    /*
+    //this.getTramites();
+    
+    
     this.tramites=[
      {
         "id": 1,
@@ -76,15 +73,15 @@ export class TablaTramiteComponent {
       documento: []
     }
   ];
-  */
+  
   }
   getTramites(): void {
     this.tramiteService.findAll().subscribe({
       next: (data) => {
-        this.tramites = data;  // Asigna los datos recibidos a la lista de trámites
+        this.tramites = data;
       },
       error: (err) => {
-        console.error('Error al obtener los trámites', err);
+        console.error('Error fetching tramites', err);
       }
     });
   }
