@@ -1,5 +1,6 @@
 package com.example.colombina.entidad;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,13 +18,19 @@ public class Tramite {
     // Atributos
     @Id
     @GeneratedValue
-    private Long tramiteId;
+    private Long idTramite;
 
-    private String titulo;
-    private String mensaje;
-    private String tipo;
+    private int numeroRegistro;
+    private String tipoTramite;
+    private boolean estadoTramite;
+    private Date fechaRadicacion;
+    private Date fechaEjecucion;
+    private String observaciones;
+    private Date plazoRespuesta;
+
 
     // Relaciones
+    //RELACIONES E-R ANTERIOR
     @ManyToOne
     @JoinColumn(name = "usuarioId", nullable = false)
     private Usuario usuario;
@@ -38,57 +45,130 @@ public class Tramite {
     @OneToMany(mappedBy = "tramite", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Notificacion> notificaciones = new ArrayList<>();
 
+    //RELACIONES E-R NUEVO
+    @OneToMany(mappedBy = "tramite")
+    private List<PagoPSE> PagosPSE = new ArrayList<>(); 
+
+    @OneToOne
+    @JoinColumn(name = "idSolicitud")
+    private SolicitudDEI solicitudDEI;
+
+    @ManyToOne
+    @JoinColumn(name = "idAsuntoRegulatorio")
+    private AsuntoRegulatorio asuntoRegulatorio;
+
+    @ManyToOne
+    @JoinColumn(name = "idArchivoControlDeTramites")
+    private ArchivoControlDeTramites archivoControlDeTramites;
+    @OneToOne
+    @JoinColumn(name = "idEntidad")
+    private EntidadSanitariaINVIMA entidadSanitariaINVIMA;
+
+    @OneToOne
+    @JoinColumn(name = "idSeguimiento")
+    private SeguimientoTramite seguimientoTramite;
+
+    @OneToMany (mappedBy = "tramite")
+    private List<ExpedienteRegulatorio> expedienteRegulatorio = new ArrayList<>();
+
     // Constructores
-    public Tramite(Long tramiteId, String titulo, String mensaje, String tipo, Usuario usuario, Fecha fecha) {
-        this.tramiteId = tramiteId;
-        this.titulo = titulo;
-        this.mensaje = mensaje;
-        this.tipo = tipo;
+
+    public Tramite() {
+    }
+
+    public Tramite(int numeroRegistro, String tipoTramite, boolean estadoTramite, Date fechaRadicacion, Date fechaEjecucion, String observaciones, Date plazoRespuesta, Usuario usuario, Fecha fecha) {
+        this.numeroRegistro = numeroRegistro;
+        this.tipoTramite = tipoTramite;
+        this.estadoTramite = estadoTramite;
+        this.fechaRadicacion = fechaRadicacion;
+        this.fechaEjecucion = fechaEjecucion;
+        this.observaciones = observaciones;
+        this.plazoRespuesta = plazoRespuesta;
         this.usuario = usuario;
         this.fecha = fecha;
     }
 
-    public Tramite() {}
-
-    public Tramite(String titulo, String mensaje, String tipo, Usuario usuario, Fecha fecha) {
-        this.titulo = titulo;
-        this.mensaje = mensaje;
-        this.tipo = tipo;
+    public Tramite(Long idTramite, int numeroRegistro, String tipoTramite, boolean estadoTramite, Date fechaRadicacion,
+            Date fechaEjecucion, String observaciones, Date plazoRespuesta, Usuario usuario, Fecha fecha,
+            List<Documento> documentos, List<Notificacion> notificaciones) {
+        this.idTramite = idTramite;
+        this.numeroRegistro = numeroRegistro;
+        this.tipoTramite = tipoTramite;
+        this.estadoTramite = estadoTramite;
+        this.fechaRadicacion = fechaRadicacion;
+        this.fechaEjecucion = fechaEjecucion;
+        this.observaciones = observaciones;
+        this.plazoRespuesta = plazoRespuesta;
         this.usuario = usuario;
         this.fecha = fecha;
+        this.documentos = documentos;
+        this.notificaciones = notificaciones;
     }
 
-    // Getters y Setters
-    public Long getTramiteId() {
-        return tramiteId;
+   // Getters y setters
+
+    public Long getIdTramite() {
+        return idTramite;
     }
 
-    public void setTramiteId(Long tramiteId) {
-        this.tramiteId = tramiteId;
+    public void setIdTramite(Long idTramite) {
+        this.idTramite = idTramite;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public int getNumeroRegistro() {
+        return numeroRegistro;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setNumeroRegistro(int numeroRegistro) {
+        this.numeroRegistro = numeroRegistro;
     }
 
-    public String getMensaje() {
-        return mensaje;
+    public String getTipoTramite() {
+        return tipoTramite;
     }
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
+    public void setTipoTramite(String tipoTramite) {
+        this.tipoTramite = tipoTramite;
     }
 
-    public String getTipo() {
-        return tipo;
+    public boolean isEstadoTramite() {
+        return estadoTramite;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setEstadoTramite(boolean estadoTramite) {
+        this.estadoTramite = estadoTramite;
+    }
+
+    public Date getFechaRadicacion() {
+        return fechaRadicacion;
+    }
+
+    public void setFechaRadicacion(Date fechaRadicacion) {
+        this.fechaRadicacion = fechaRadicacion;
+    }
+
+    public Date getFechaEjecucion() {
+        return fechaEjecucion;
+    }
+
+    public void setFechaEjecucion(Date fechaEjecucion) {
+        this.fechaEjecucion = fechaEjecucion;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public Date getPlazoRespuesta() {
+        return plazoRespuesta;
+    }
+
+    public void setPlazoRespuesta(Date plazoRespuesta) {
+        this.plazoRespuesta = plazoRespuesta;
     }
 
     public Usuario getUsuario() {
@@ -123,5 +203,61 @@ public class Tramite {
         this.notificaciones = notificaciones;
     }
 
+    public List<PagoPSE> getPagosPSE() {
+        return PagosPSE;
+    }
 
+    public void setPagosPSE(List<PagoPSE> pagosPSE) {
+        PagosPSE = pagosPSE;
+    }
+
+    public SolicitudDEI getSolicitudDEI() {
+        return solicitudDEI;
+    }
+
+    public void setSolicitudDEI(SolicitudDEI solicitudDEI) {
+        this.solicitudDEI = solicitudDEI;
+    }
+
+    public AsuntoRegulatorio getAsuntoRegulatorio() {
+        return asuntoRegulatorio;
+    }
+
+    public void setAsuntosRegulatorios(AsuntoRegulatorio asuntoRegulatorio) {
+        this.asuntoRegulatorio = asuntoRegulatorio;
+    }
+
+    public ArchivoControlDeTramites getArchivosControlDeTramites() {
+        return archivoControlDeTramites;
+    }
+
+    public void setArchivosControlDeTramites(ArchivoControlDeTramites archivosControlDeTramites) {
+        this.archivoControlDeTramites = archivosControlDeTramites;
+    }
+
+    public EntidadSanitariaINVIMA getEntidadSanitariaINVIMA() {
+        return entidadSanitariaINVIMA;
+    }
+
+    public void setEntidadSanitariaINVIMA(EntidadSanitariaINVIMA entidadSanitariaINVIMA) {
+        this.entidadSanitariaINVIMA = entidadSanitariaINVIMA;
+    }
+
+    public SeguimientoTramite getSeguimientoTramite() {
+        return seguimientoTramite;
+    }
+
+    public void setSeguimientoTramite(SeguimientoTramite seguimientoTramite) {
+        this.seguimientoTramite = seguimientoTramite;
+    }
+
+    public List<ExpedienteRegulatorio> getExpedienteRegulatorio() {
+        return expedienteRegulatorio;
+    }
+
+    public void setExpedienteRegulatorio(List<ExpedienteRegulatorio> expedienteRegulatorio) {
+        this.expedienteRegulatorio = expedienteRegulatorio;
+    }
+
+    
 }

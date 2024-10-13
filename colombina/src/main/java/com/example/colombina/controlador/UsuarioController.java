@@ -1,14 +1,22 @@
 package com.example.colombina.controlador;
 
-import com.example.colombina.entidad.Usuario;
-import com.example.colombina.servicio.UsuarioService;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
+import com.example.colombina.entidad.Usuario;
+import com.example.colombina.servicio.UsuarioService;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -41,8 +49,8 @@ public class UsuarioController {
 
     // GET: Obtener usuarios por tipo
     @GetMapping("/tipo/{tipo}")
-    public ResponseEntity<List<Usuario>> getUsuariosByTipo(@PathVariable String tipo) {
-        List<Usuario> usuarios = usuarioService.getUsuariosByTipo(tipo);
+    public ResponseEntity<List<Usuario>> getUsuariosByTipo(@PathVariable String Rol) {
+        List<Usuario> usuarios = usuarioService.getUsuariosByRol(Rol);
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 
@@ -61,7 +69,7 @@ public class UsuarioController {
             Usuario usuario = usuarioOptional.get();
             usuario.setUsuario(usuarioActualizado.getUsuario());
             usuario.setCorreo(usuarioActualizado.getCorreo());
-            usuario.setTipo(usuarioActualizado.getTipo());
+            usuario.setRol(usuarioActualizado.getRol());
             usuario.setContraseña(usuarioActualizado.getContraseña());
             Usuario usuarioGuardado = usuarioService.saveUsuario(usuario);
             return new ResponseEntity<>(usuarioGuardado, HttpStatus.OK);

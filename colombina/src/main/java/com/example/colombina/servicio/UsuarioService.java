@@ -1,12 +1,13 @@
 package com.example.colombina.servicio;
 
-import com.example.colombina.entidad.Usuario;
-import com.example.colombina.repositorio.UsuarioRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.example.colombina.entidad.Usuario;
+import com.example.colombina.repositorio.UsuarioRepository;
 
 @Service
 public class UsuarioService {
@@ -39,8 +40,8 @@ public class UsuarioService {
     }
 
 
-    public List<Usuario> getUsuariosByTipo(String tipo) {
-        return usuarioRepository.findByTipo(tipo);
+    public List<Usuario> getUsuariosByRol(String Rol) {
+        return usuarioRepository.findByRol(Rol);
     }
 
 

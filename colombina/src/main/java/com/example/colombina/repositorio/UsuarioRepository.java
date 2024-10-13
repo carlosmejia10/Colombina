@@ -9,6 +9,6 @@ import com.example.colombina.entidad.Usuario;
 public interface UsuarioRepository extends JpaRepository <Usuario, Long>{
     Optional<Usuario> findByCredencial(String Credencial);
     Optional<Usuario> findByCorreo(String correo);
-    List<Usuario> findByTipo(String tipo);
+    List<Usuario> findByRol(String Rol);
     
 }

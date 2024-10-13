@@ -1,11 +1,11 @@
 package com.example.colombina.servicio;
-import com.example.colombina.entidad.Tramite;
-import com.example.colombina.repositorio.TramiteRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.example.colombina.entidad.Tramite;
+import com.example.colombina.repositorio.TramiteRepository;
 @Service
 public class TramiteService {
     private final TramiteRepository tramiteRepository;
@@ -32,9 +32,6 @@ public class TramiteService {
         Optional<Tramite> tramiteExistente = tramiteRepository.findById(id);
         if (tramiteExistente.isPresent()) {
             Tramite tramiteActualizado = tramiteExistente.get();
-            tramiteActualizado.setTitulo(detallesTramite.getTitulo());
-            tramiteActualizado.setMensaje(detallesTramite.getMensaje());
-            tramiteActualizado.setTipo(detallesTramite.getTipo());
             tramiteActualizado.setUsuario(detallesTramite.getUsuario());
             tramiteActualizado.setFecha(detallesTramite.getFecha());
             tramiteActualizado.setDocumentos(detallesTramite.getDocumentos());

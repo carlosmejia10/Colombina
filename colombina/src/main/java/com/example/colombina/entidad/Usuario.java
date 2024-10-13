@@ -17,32 +17,34 @@ public class Usuario {
     
     private String credencial;
     private String correo;
-    private String tipo;
+    private String rol;
     private String contraseña;
 
-    //Relaciones
+    //RELACIONES E-R ANTERIOR
     @OneToMany(mappedBy="usuario", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Tramite> tramites = new ArrayList<>();
 
+    //RELACIONES E-R NUEVO
+    @OneToMany(mappedBy="usuario")
+    private List<ExpedienteRegulatorio> expedientesRegulatorios = new ArrayList<>();
+
     //Constructores
-    public Usuario(Long id, String credencial, String correo, String tipo, String contraseña, List<Tramite> tramites) {
+    public Usuario(Long id, String credencial, String correo, String rol, String contraseña) {
         this.id = id;
         this.credencial = credencial;
         this.correo = correo;
-        this.tipo = tipo;
+        this.rol = rol;
         this.contraseña = contraseña;
-        this.tramites = tramites;
     }
 
     public Usuario() {
     }
 
-    public Usuario(String credencial, String correo, String tipo, String contraseña, List<Tramite> tramites) {
+    public Usuario(String credencial, String correo, String rol, String contraseña) {
         this.credencial = credencial;
         this.correo = correo;
-        this.tipo = tipo;
+        this.rol = rol;
         this.contraseña = contraseña;
-        this.tramites = tramites;
     }
 
     //Getters y setters
@@ -70,12 +72,12 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getRol() {
+        return rol;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public String getContraseña() {
@@ -94,5 +96,12 @@ public class Usuario {
         this.tramites = tramites;
     }
 
-    
+    public List<ExpedienteRegulatorio> getExpedientesRegulatorios() {
+        return expedientesRegulatorios;
+    }
+
+    public void setExpedientesRegulatorios(List<ExpedienteRegulatorio> expedientesRegulatorios) {
+        this.expedientesRegulatorios = expedientesRegulatorios;
+    }
 }
+
