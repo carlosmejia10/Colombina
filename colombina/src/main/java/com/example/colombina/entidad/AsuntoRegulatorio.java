@@ -17,7 +17,7 @@ public class AsuntoRegulatorio {
     @GeneratedValue
     private Long idAsuntoRegulatorio;
 
-    private String Responsable;
+    private String responsable;
     private boolean estadoAsunto;
     private Date fechaAsunto;
 
@@ -28,14 +28,14 @@ public class AsuntoRegulatorio {
     }
 
     public AsuntoRegulatorio(String responsable, boolean estadoAsunto, Date fechaAsunto) {
-        this.Responsable = responsable;
+        this.responsable = responsable;
         this.estadoAsunto = estadoAsunto;
         this.fechaAsunto = fechaAsunto;
     }
     
     public AsuntoRegulatorio(Long idAsuntoRegulatorio, String responsable, boolean estadoAsunto, Date fechaAsunto) {
         this.idAsuntoRegulatorio = idAsuntoRegulatorio;
-        this.Responsable = responsable;
+        this.responsable = responsable;
         this.estadoAsunto = estadoAsunto;
         this.fechaAsunto = fechaAsunto;
     }
@@ -49,11 +49,11 @@ public class AsuntoRegulatorio {
     }
 
     public String getResponsable() {
-        return Responsable;
+        return responsable;
     }
 
     public void setResponsable(String responsable) {
-        Responsable = responsable;
+        this.responsable = responsable;
     }
 
     public boolean isEstadoAsunto() {
