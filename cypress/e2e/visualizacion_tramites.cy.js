@@ -31,4 +31,10 @@ describe('template spec', () => {
       cy.get('[href=""] > .icono').click()
       cy.get('.lista-opciones').should('be.visible') //Debería mostrar una lista con opciones para filtrar los trámites
     })
+
+  it('informacion tramite Internacional', () => {
+    cy.visit('http://localhost:4200/tramites')
+    cy.get(':nth-child(2) > td > .registro > a').click()
+    cy.contains('Información del Trámite').should('exist')
+  })
 })
