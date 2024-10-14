@@ -1,5 +1,5 @@
 describe('template spec', () => {
-  it('Inisio de Sesion', () => {
+  it('Inicio de Sesion', () => {
     cy.visit('http://localhost:4200/')
     cy.get('#username').type("JuanPablo")
     cy.get('#password').type("123456")
@@ -14,7 +14,7 @@ describe('template spec', () => {
     cy.get(':nth-child(1) > .activar > label').click().check()
   })
 
-  /*it('Campos vacios', () => {
+  it('Campos vacios', () => {
     cy.visit('http://localhost:4200/')
     cy.get('.fl').click()
     cy.get('.alert-danger').should('be.visible')
