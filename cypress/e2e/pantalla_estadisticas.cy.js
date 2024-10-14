@@ -11,7 +11,5 @@ describe('template spec', () => {
       cy.url().should('include','http://localhost:4200/renovar')
 
     })
-  
-    
   })
   

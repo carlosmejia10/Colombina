@@ -1,0 +1,100 @@
+<app-header></app-header>
+   
+
+<div class="container">
+        
+    <app-lateral></app-lateral>
+    
+    <div class="contenedor">
+            
+        <app-barra-opc></app-barra-opc>
+        <!--CORTA-->
+        <div class="main-content">
+            <div class="tablas">
+                <div class="ContenedorPendientes">
+                    <div class="TituloTabla">
+                        <h2>Tramites Sanitarios Nacionales</h2>
+                        <!-- Botón para desplegar u ocultar la tabla -->
+                        <button href="#" (click)="toggleTabla('tabla1'); $event.preventDefault();" class="Desplegar">
+                            <img src="images/Desplegar.png" class="Desplegable">
+                        </button>
+                    </div>
+          
+                    <!-- Tabla con visibilidad controlada por el ngIf -->
+                    <ng-container class="pendientes"  *ngIf="mostrarTabla1">
+                        <table>
+                            <tr *ngFor="let tramite of tramites">
+                              <ng-container *ngIf="tramite.tipo=='a'">
+                                <!--
+                                <td>
+                                  <i *ngIf="tramite.estado" class="estatus hecho"></i>
+                                  <i *ngIf="!tramite.estado" class="estatus pendiente"></i>
+                                </td>
+                                -->
+                                <td>
+                                    <div class="registro">
+                                        <a [routerLink]="['/infoTramite']">{{tramite.titulo}}</a>
+                                        <p>{{tramite.fecha}}</p>
+                                    </div>
+                                    <p>{{tramite.mensaje}}</p>
+                                </td>
+                              </ng-container>
+                            </tr>
+                           
+                        </table>
+                    </ng-container>
+                </div>
+          
+                <!-- Tabla 2 -->
+                <div class="ContenedorPendientes" >
+                    <div class="TituloTabla">
+                        <h2>Tramites Sanitarios Internacionales</h2>
+                        <button href="#" (click)="toggleTabla('tabla2'); $event.preventDefault();" class="Desplegar">
+                            <img src="images/Desplegar.png" class="Desplegable">
+                        </button>
+                    </div>
+          
+                    <ng-container class="pendientes" *ngIf="mostrarTabla2">
+                      <table>
+                        <tr *ngFor="let tramite of tramites">
+                          <ng-container *ngIf="tramite.tipo=='b'">
+                           <!-- <td>
+                              <i *ngIf="tramite.estado" class="estatus hecho"></i>
+                              <i *ngIf="!tramite.estado" class="estatus pendiente"></i>
+                            </td>
+                            -->
+                            <td>
+                                <div class="registro">
+                                    <a [routerLink]="['/infoTramite']">{{tramite.titulo}}</a>
+                                    <p>{{tramite.fecha}}</p>
+                                </div>
+                                <p>{{tramite.mensaje}}</p>
+                            </td>
+                          </ng-container>
+                        </tr>
+                       
+                    </table>
+                    </ng-container>
+                </div>
+            </div>
+            <!-- Información de la tabla -->
+            <div class="InfoContenedor">
+                <div class="registro-info">
+                    <h2>Estado del registro</h2>
+                    <p>REGISTRO N° </p> <!--Poner numero de registro-->
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 45%;"></div>
+                    </div>
+                    <p class="progress-percent">45%</p>
+                    <p>Fecha de envío del trámite: 07/08/24</p> <!--Poner fecha con datos-->
+                    <p>Fecha de espera de respuesta: 07/08/24</p> <!--Poner fecha con datos-->
+                    <h2>Pendientes: </h2>
+                    <a href="#">Aprobación INVIMA</a>
+                    <h2>Documentos: </h2>
+                    <a href="#">Ver documentos</a>
+                </div>
+            </div>
+        </div>
+        <!--CORTA-->
+    </div>
+</div>
