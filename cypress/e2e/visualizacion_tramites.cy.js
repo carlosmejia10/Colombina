@@ -25,4 +25,10 @@ describe('template spec', () => {
     cy.get('.registro-info > :nth-child(8)').click()
     cy.url().should('include', 'http://localhost:4200/tramites/pendientes') //Debería mandar a ver los trámites pendientes
   })
+
+  it('Filtrar tramites', () => {
+      cy.visit('http://localhost:4200/tramites')
+      cy.get('[href=""] > .icono').click()
+      cy.get('.lista-opciones').should('be.visible') //Debería mostrar una lista con opciones para filtrar los trámites
+    })
 })
