@@ -17,8 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.colombina.entidad.Tramite;
 import com.example.colombina.servicio.TramiteService;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.info.Info;
+
 @RestController
 @RequestMapping("/api/tramites")
+@OpenAPIDefinition(info = @Info(title = "Trámites API", version = "1.0", description = "API para el manejo de trámites"))
 public class TramiteController {
 
     private final TramiteService tramiteService;
@@ -29,13 +35,17 @@ public class TramiteController {
 
     // Crear un nuevo trámite
     @PostMapping
-    public ResponseEntity<Tramite> crearTramite(@RequestBody Tramite tramite) {
+    @Operation(summary = "Crear un nuevo trámite", description = "Permite crear un nuevo trámite en el sistema.")
+    public ResponseEntity<Tramite> crearTramite(
+        @Parameter(description = "Detalles del trámite a crear", required = true)
+        @RequestBody Tramite tramite) {
         Tramite nuevoTramite = tramiteService.crearTramite(tramite);
         return new ResponseEntity<>(nuevoTramite, HttpStatus.CREATED);
     }
 
     // Obtener todos los trámites
     @GetMapping
+    @Operation(summary = "Obtener todos los trámites", description = "Devuelve una lista de todos los trámites disponibles en el sistema.")
     public ResponseEntity<List<Tramite>> obtenerTodosLosTramites() {
         List<Tramite> tramites = tramiteService.obtenerTodosLosTramites();
         return new ResponseEntity<>(tramites, HttpStatus.OK);
@@ -43,7 +53,10 @@ public class TramiteController {
 
     // Obtener trámite por ID
     @GetMapping("/{id}")
-    public ResponseEntity<Tramite> obtenerTramitePorId(@PathVariable Long id) {
+    @Operation(summary = "Obtener un trámite por ID", description = "Devuelve los detalles de un trámite específico a partir de su ID.")
+    public ResponseEntity<Tramite> obtenerTramitePorId(
+        @Parameter(description = "ID del trámite que se desea obtener", required = true)
+        @PathVariable Long id) {
         Optional<Tramite> tramite = tramiteService.obtenerTramitePorId(id);
         return tramite
                 .map(value -> new ResponseEntity<>(value, HttpStatus.OK))
@@ -52,7 +65,12 @@ public class TramiteController {
 
     // Actualizar trámite
     @PutMapping("/{id}")
-    public ResponseEntity<Tramite> actualizarTramite(@PathVariable Long id, @RequestBody Tramite detallesTramite) {
+    @Operation(summary = "Actualizar un trámite", description = "Permite actualizar los detalles de un trámite específico.")
+    public ResponseEntity<Tramite> actualizarTramite(
+        @Parameter(description = "ID del trámite a actualizar", required = true)
+        @PathVariable Long id, 
+        @Parameter(description = "Nuevos detalles del trámite", required = true)
+        @RequestBody Tramite detallesTramite) {
         try {
             Tramite tramiteActualizado = tramiteService.actualizarTramite(id, detallesTramite);
             return new ResponseEntity<>(tramiteActualizado, HttpStatus.OK);
@@ -63,7 +81,10 @@ public class TramiteController {
 
     // Eliminar trámite
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarTramite(@PathVariable Long id) {
+    @Operation(summary = "Eliminar un trámite", description = "Permite eliminar un trámite del sistema a partir de su ID.")
+    public ResponseEntity<Void> eliminarTramite(
+        @Parameter(description = "ID del trámite a eliminar", required = true)
+        @PathVariable Long id) {
         try {
             tramiteService.eliminarTramite(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
